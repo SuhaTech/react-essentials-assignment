@@ -21,7 +21,7 @@ movie-explorer/
 ## Live Demo
 
 Portfolio Card:
-(Add Netlify Link)
+https://react-essentials-assignment-five.vercel.app/
 
 Movie Explorer:
-(Add Netlify Link)
+https://react-essentials-assignment-s7rt.vercel.app/
