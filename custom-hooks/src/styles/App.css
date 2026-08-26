@@ -1,0 +1,47 @@
+.header {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-icon {
+  font-size: 45px;
+}
+
+.logo p {
+  margin-top: 5px;
+  color: #dbeafe;
+}
+
+.dashboard {
+  margin: 20px 0;
+}
+
+.stat-card {
+  text-align: center;
+  transition: 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-card h3 {
+  color: #6b7280;
+}
+
+.stat-card h2 {
+  margin-top: 10px;
+  color: #2563eb;
+  font-size: 32px;
+}
+
+form button {
+  width: 100%;
+  margin-top: 10px;
+}
