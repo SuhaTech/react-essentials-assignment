@@ -1,0 +1,11 @@
+Deployment
+The Student Grade Tracker application has been successfully deployed using Vercel.
+
+Live Deployment Link:
+https://studentgradetracker.vercel.app/
+
+Project Description
+Student Grade Tracker is a responsive React application developed using Class-Based Components. It allows users to add, update, filter, sort, and remove student records while displaying their grades and Passed/Failed status. The project demonstrates React concepts such as this.state, setState(), controlled forms, event handling, props, conditional rendering, and lifecycle methods including componentDidMount(), componentDidUpdate(), and componentWillUnmount(). The application is designed to work across desktop, tablet, and mobile devices.
+
+Deployment Platform: Vercel
+Live URL: studentgradetracker.vercel.app

@@ -1,0 +1,8 @@
+### Deployment
+
+The Task Manager application has been successfully deployed using Vercel. The application is built with React and uses Context API and the useReducer hook for global task state management.
+
+**Live Deployment Link:**
+https://react-essentials-assignment-gb37.vercel.app/
+
+The deployed application is responsive and can be accessed on desktop, tablet, and mobile devices. All major task management features, including adding, editing, completing, deleting, and clearing tasks, are available in the deployed application.

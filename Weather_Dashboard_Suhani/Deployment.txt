@@ -1,0 +1,13 @@
+### 🌤️ Weather Information Dashboard
+
+#### Project Description
+The Weather Dashboard is a modern, single-page React web application designed to demonstrate efficient side-effect management using the `useEffect` hook. It allows users to search for any city globally and retrieves live weather metrics including ambient temperature, weather condition descriptions, feels-like temperature, humidity levels, wind speed, and atmospheric pressure. 
+
+#### Key Features
+- **Real-Time Data Fetching**: Asynchronous fetching from OpenWeatherMap API on load and search input.
+- **Side-Effect Management**: Implements `useEffect` with dependency tracking, auto-refresh timer cleanup, and `AbortController` cancellation.
+- **Robust Error Handling**: User-friendly alerts for invalid city queries and network connectivity failures.
+- **Fully Responsive**: Optimized UI layout for Desktop, Tablet, and Mobile screens.
+
+#### Live Deployment & Repository Links
+- **Live Deployment Link**: https://weatherdashboardsuhani.vercel.app/

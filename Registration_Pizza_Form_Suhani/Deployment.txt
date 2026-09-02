@@ -1,0 +1,28 @@
+Project Overview
+This project is a React (Vite)-based web application featuring two fully responsive, interactive forms designed to showcase state management, dynamic pricing calculation, real-time input validation, and submission state handling.
+
+User Registration Form:
+
+Features real-time client-side validation for Name, Email, Phone number (10-digit check), Password complexity, Confirm Password matching, Gender selection, and Terms acceptance.
+
+Includes dynamic error guidance and automatic form reset post-submission with localStorage persistence.
+
+Mario’s Pizza Online Ordering System:
+
+Interactive ordering platform with dynamic base price, crust add-on fees, toppings, and sides selection.
+
+Features real-time cost computation, quantity scaling, live order summary, form reset functionality, and instant order receipt generation.
+
+🌐 Live Deployment Link
+Live App Link: 
+
+https://registrationpizzaform.netlify.app/
+
+🛠️ Tech Stack & Dependencies
+Framework: React (Vite)
+
+Styling: Custom CSS3 (Flexbox, CSS Grid, Media Queries)
+
+State Management: React Hooks (useState, useEffect)
+
+Storage: LocalStorage API
