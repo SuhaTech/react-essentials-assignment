@@ -23,36 +23,43 @@ const Products = () => {
   return (
     <section className="section-shell">
       <div className="section-frame">
-        <div className="mb-8 text-center">
-          <p className="section-eyebrow">
-            Our Products
+        <div className="mb-10 flex w-full flex-col items-center text-center">
+          <p className="text-xs font-bold uppercase tracking-widest text-orange-500"><br/><br/><br/><bt/><br/><br/>
+            Products
           </p>
 
-          <h2 className="section-title">
+          <h2 className="mt-2 text-3xl font-black text-slate-900 sm:text-4xl lg:text-5xl">
             Our Products
           </h2>
 
-          <div className="mx-auto mt-4 h-1 w-24 rounded-full bg-orange-200" />
+          <div className="my-4 h-1.5 w-20 rounded-full bg-gradient-to-r from-orange-500 to-amber-400" /><br/>
 
-          <p className="section-copy">
+          <p className="mx-auto max-w-xl text-base font-normal leading-7 text-slate-600 sm:text-lg">
             Fresh picks across fruits, vegetables, dairy and seafood. Tap a category to preview all items from that section.
-          </p>
+          </p><br/>
         </div>
 
-        <div className="mb-10 flex flex-wrap justify-center gap-3">
-          {categories.map((category) => (
-            <button
-              key={category}
-              type="button"
-              onClick={() => setActiveCategory(category)}
-              className={`rounded-full px-5 py-2 text-sm font-semibold transition duration-300 ${activeCategory === category ? "bg-orange-500 text-white shadow-[0_10px_18px_rgba(249,115,22,0.18)]" : "bg-white text-slate-700 shadow-[0_10px_20px_rgba(15,23,42,0.05)] ring-1 ring-slate-200 hover:-translate-y-0.5 hover:ring-orange-200 hover:text-orange-600"}`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+        <div className="mb-10 flex justify-center">
+          <div className="inline-flex max-w-full flex-wrap justify-center gap-2 rounded-2xl border border-orange-100 bg-white/80 p-2 shadow-[0_14px_30px_rgba(37,72,53,0.08)] backdrop-blur-sm">
+            {categories.map((category) => {
+              const isActive = activeCategory === category;
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              return (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => setActiveCategory(category)}
+                  aria-pressed={isActive}
+                  className={`min-w-[5.5rem] rounded-xl px-4 py-2.5 text-sm font-bold transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${isActive ? "bg-gradient-to-r from-orange-500 to-amber-400 text-white shadow-[0_8px_18px_rgba(249,115,22,0.28)]" : "text-slate-600 hover:-translate-y-0.5 hover:bg-orange-50 hover:text-orange-600"}`}
+                >
+                  {category}
+                </button>
+              );
+            })}
+          </div>
+        </div><br/>
+
+        <div className="grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {displayedProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

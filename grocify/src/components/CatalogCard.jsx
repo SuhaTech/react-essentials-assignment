@@ -1,44 +1,76 @@
-import { Link } from "react-router-dom";
-import { FaHeart, FaPlus } from "react-icons/fa";
+import { useState } from "react";
+import { FaHeart, FaPlus, FaStar, FaShoppingCart } from "react-icons/fa";
+import { useCart } from "../context/CartContext";
 
 const CatalogCard = ({ item }) => {
+  const [isLiked, setIsLiked] = useState(false);
+  const { addToCart } = useCart();
+
   return (
-    <article className="group overflow-hidden surface-card p-4 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(15,23,42,0.08)]">
-      <div className="flex items-start justify-between">
-        <Link
-          to={item.route}
-          className="icon-button h-8 w-8 bg-white text-slate-300 shadow-sm ring-1 ring-slate-100 hover:text-orange-500 hover:shadow-md"
+    <article className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-orange-200 hover:shadow-xl hover:shadow-orange-500/10">
+      
+      {/* Top Action Buttons (Wishlist & Quick Add) */}
+      <div className="flex items-center justify-between">
+        <button
+          onClick={() => setIsLiked(!isLiked)}
+          className={`flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-300 ${
+            isLiked
+              ? "border-red-200 bg-red-50 text-red-500 shadow-sm"
+              : "border-slate-100 bg-slate-50 text-slate-400 hover:border-orange-200 hover:bg-orange-50 hover:text-orange-500"
+          }`}
           aria-label={`Save ${item.name}`}
         >
-          <FaHeart />
-        </Link>
+          <FaHeart className="text-sm transition-transform active:scale-125" />
+        </button>
 
-        <Link
-          to={item.route}
-          className="grid h-9 w-9 place-items-center rounded-xl bg-orange-500 text-white shadow-[0_8px_16px_rgba(249,115,22,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-orange-600 hover:shadow-[0_10px_20px_rgba(249,115,22,0.24)]"
+        <button
+          type="button"
+          onClick={() => addToCart(item)}
+          className="flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-500 to-amber-500 text-white shadow-md shadow-orange-200 transition-all duration-300 hover:scale-105 hover:from-orange-600 hover:to-amber-600 hover:shadow-lg hover:shadow-orange-300 active:scale-95"
           aria-label={`Add ${item.name}`}
         >
-          <FaPlus />
-        </Link>
+          <FaPlus className="text-xs" />
+        </button>
       </div>
 
-      <div className="mt-2 flex h-44 items-center justify-center px-2">
+      {/* Product Image Container */}
+      <div className="my-4 flex h-40 items-center justify-center px-2">
         <img
           src={item.image}
           alt={item.name}
-          className="max-h-40 w-full object-contain transition duration-300 group-hover:scale-105"
+          className="max-h-36 w-full object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-sm"
         />
       </div>
 
-      <div className="mt-1 text-center">
-        <h3 className="text-lg font-semibold text-slate-900">{item.name}</h3>
-        <p className="mt-2 text-base font-bold text-slate-900">{item.price}</p>
-        <Link
-          to={item.route}
-          className="btn-primary mt-4 w-full"
+      {/* Product Information */}
+      <div className="flex flex-col items-center text-center">
+        
+        {/* Star Rating */}
+        <div className="mb-1.5 flex items-center justify-center gap-1 text-amber-400">
+          {[...Array(5)].map((_, i) => (
+            <FaStar key={i} className="text-xs" />
+          ))}
+        </div>
+
+        {/* Product Title */}
+        <h3 className="text-base font-bold text-slate-800 transition-colors group-hover:text-orange-500">
+          {item.name}
+        </h3>
+
+        {/* Price Tag */}
+        <p className="mt-1 text-lg font-black text-slate-900">
+          {item.price}
+        </p>
+
+        {/* Primary Shop Action Button */}
+        <button
+          type="button"
+          onClick={() => addToCart(item)}
+          className="mt-4 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-500 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-md shadow-orange-200 transition-all duration-300 hover:from-orange-600 hover:to-amber-600 hover:shadow-lg hover:shadow-orange-300 active:scale-95"
         >
-          Shop Now
-        </Link>
+          <FaShoppingCart className="text-sm" />
+          <span>Shop Now</span>
+        </button>
       </div>
     </article>
   );

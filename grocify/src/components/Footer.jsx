@@ -89,7 +89,7 @@ const Footer = () => {
           <ul className="space-y-3 text-slate-400">
 
             {quickLinks.map((link) => (
-              <li key={link.to}>
+              <li key={`${link.label}-${link.to}`}>
                 <Link className="transition hover:text-orange-400" to={link.to}>
                   {link.label}
                 </Link>
@@ -109,7 +109,7 @@ const Footer = () => {
           <ul className="space-y-3 text-slate-400">
 
             {categoryLinks.map((link) => (
-              <li key={link.to}>
+              <li key={`${link.label}-${link.to}`}>
                 <Link className="transition hover:text-orange-400" to={link.to}>
                   {link.label}
                 </Link>

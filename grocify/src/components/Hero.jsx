@@ -1,63 +1,54 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { FaLeaf } from "react-icons/fa";
-import basket from "../assets/basket.png";
+import React from 'react';
+import { motion } from 'framer-motion';
+import basketImg from '../assets/basket.png';
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden py-20 lg:py-24">
-      <div className="absolute inset-x-0 top-0 -z-10 h-64 bg-gradient-to-b from-orange-50/70 to-transparent" />
-
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-6">
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-2xl"
+    <section className="relative bg-gradient-to-b from-orange-50/60 to-white py-12 md:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        
+        {/* Left Text Content */}
+        <motion.div 
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="space-y-6 text-center md:text-left"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/85 px-5 py-2 text-sm font-semibold text-orange-500 shadow-[0_10px_24px_rgba(249,115,22,0.12)] backdrop-blur">
-            <FaLeaf />
+          <span className="inline-block bg-orange-100 text-orange-600 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">
             Export Best Quality...
           </span>
 
-          <h1 className="mt-6 max-w-xl text-5xl font-black leading-[1.02] tracking-tight text-slate-900 sm:text-6xl lg:text-7xl">
-            Tasty organic
-            <br />
-            <span className="text-orange-500">Fruits &amp; Veggies</span>
-            <br />
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-tight">
+            Tasty organic <br className="hidden sm:inline" />
+            <span className="text-orange-500">Fruits & Veggies</span> <br className="hidden sm:inline" />
             In Your City
           </h1>
 
-          <p className="mt-5 max-w-xl text-base leading-8 text-slate-500 sm:text-lg">
+          <p className="text-slate-600 text-base sm:text-lg max-w-lg mx-auto md:mx-0">
             Bred for a high content of beneficial substances. Our products are all fresh and healthy.
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="#categories" className="btn-primary px-8 py-3">
+          <div className="flex items-center justify-center md:justify-start gap-4">
+            <button className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-8 py-3.5 rounded-full shadow-lg shadow-orange-200 transition transform hover:-translate-y-0.5">
               Shop Now
-            </a>
-
-            <Link to="/all-products" className="btn-secondary px-8 py-3">
+            </button>
+            <button className="bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold px-6 py-3.5 rounded-full transition">
               Explore Products
-            </Link>
+            </button>
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="flex justify-center lg:justify-end"
-        >
-          <div className="relative w-full max-w-[640px]">
-            <div className="absolute inset-8 -z-10 rounded-full bg-orange-200/30 blur-3xl" />
-            <img
-              src={basket}
-              alt="Fresh grocery basket"
-              className="w-full animate-float drop-shadow-[0_30px_60px_rgba(15,23,42,0.14)]"
-            />
-          </div>
-        </motion.div>
+        {/* Right Floating Basket */}
+        <div className="flex justify-center">
+          <motion.img 
+            src={basketImg} 
+            alt="Fruits Basket"
+            className="w-full max-w-md lg:max-w-lg object-contain"
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </div>
+
       </div>
     </section>
   );
